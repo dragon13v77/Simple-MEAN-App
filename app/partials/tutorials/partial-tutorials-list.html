@@ -1,14 +1,15 @@
-<div class="jumbotron">
-	<div class="container">
-		<div class="list-group">
-			<a ui-sref="tutorial({tutorialId: tutorial._id})" class="list-group-item list-group-item-action" ng-repeat="tutorial in tutorials">
-				<div class="d-flex w-100 justify-content-between">
-					<h5 class="mb-1">{{ tutorial.name }}</h5>
-					<small>3 days ago</small>
-				</div>
-				<p class="mb-1">{{ tutorial.description }}</p>
-				<small>Donec id elit non mi porta.</small>
-			</a>
-		</div>
-	</div>
+<div layout="row" layout-align="center center">
+	<span flex></span>
+	<md-list flex="60">
+		<md-subheader class="md-no-sticky">{{tutorials.length}} items</md-subheader>
+		<md-list-item class="md-3-line"   ng-repeat="tutorial in tutorials" ui-sref="tutorial({tutorialId: tutorial._id})">
+			<img ng-src="" class="md-avatar" alt="" />
+			<div class="md-list-item-text" layout="column">
+				<h1>{{ tutorial.name }}</h1>
+				<h3>{{ tutorial.description }}</h3>
+				<p>3 days ago</p>
+			</div>
+		</md-list-item>
+	</md-list>
+	<span flex></span>
 </div>

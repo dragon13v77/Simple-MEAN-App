@@ -1,6 +1,7 @@
-<md-content>
-	<div layout="column" layout-padding layout-align="center center">
-		<form name="loginForm">
+<md-content layout="row" layout-align="center stretch" style="height: 100%">
+	<span flex></span>
+	<div layout="row" layout-padding layout-align="center center" flex="30">
+		<form flex name="loginForm">
 			<div layout="column">
 				<md-input-container class="md-block">
 					<label>Username</label>
@@ -10,10 +11,11 @@
 					<label>Password</label>
 					<input type="password" ng-model="user.password">
 				</md-input-container>
-				<div class="form-group">
+				<div class="form-group" layout-align="center center" layout="row">
 					<md-button type="submit" ng-click="login(user)" class="md-raised md-primary md-hue-2">Login</md-button>
 				</div>
 			</div>
 		</form>
 	</div>
+	<span flex></span>
 </md-content>

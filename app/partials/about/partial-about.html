@@ -1,20 +1,23 @@
 <!-- partial-about.html -->
+<div layout="row" layout-align="center">
+	<span flex></span>
+	<md-content layout="column" layout-padding layout-align="center" flex="60" style="text-align: center">
+		<h1>The About Page</h1>
 
-<div class="jumbotron text-center">
-	<h1>The About Page</h1>
-	<p>This page demonstrates <span class="text-danger">multiple</span> and <span class="text-danger">named</span> views.</p>
+		<p>This page demonstrates <span>multiple</span> and <span>named</span>views.</p>
+	</md-content>
+	<span flex></span>
 </div>
+<!--<md-content layout="row">-->
 
-<div class="row">
+<!--&lt;!&ndash; COLUMN ONE NAMED VIEW &ndash;&gt;-->
+<!--<div class="col-sm-6">-->
+<!--<div ui-view="columnOne"></div>-->
+<!--</div>-->
 
-	<!-- COLUMN ONE NAMED VIEW -->
-	<div class="col-sm-6">
-		<div ui-view="columnOne"></div>
-	</div>
+<!--&lt;!&ndash; COLUMN TWO NAMED VIEW &ndash;&gt;-->
+<!--<div class="col-sm-6">-->
+<!--<div ui-view="columnTwo"></div>-->
+<!--</div>-->
 
-	<!-- COLUMN TWO NAMED VIEW -->
-	<div class="col-sm-6">
-		<div ui-view="columnTwo"></div>
-	</div>
-
-</div>
+<!--</md-content>-->

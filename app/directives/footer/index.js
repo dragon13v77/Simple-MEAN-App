@@ -3,7 +3,7 @@ angular.module('footer', [])
 
 		return {
 			restrict: 'EA',
-			templateUrl: '/directives/footer/material/footer-new.html',
+			templateUrl: '/directives/footer/footer.html',
 			controller: 'footerController'
 		}
 	})
