@@ -1,0 +1,35 @@
+<div class="jumbotron">
+	<div class="container">
+		<h1>{{tutorial.name}}</h1>
+
+		<p>{{tutorial.description}}</p>
+	</div>
+	<div class="container">
+		<p>Purpose of this tutorial is to learn Redis in memory databases by using it in session handling.</p>
+	</div>
+	<div class="container">
+		<h4>What is Redis?</h4>
+
+		<p>Redis is an open source (BSD licensed), in-memory data structure store, used as a database, cache and message
+			broker. It supports data structures such as strings, hashes, lists, sets, sorted sets with range queries,
+			bitmaps, hyperloglogs, geospatial indexes with radius queries and streams. Redis has built-in replication,
+			Lua scripting, LRU eviction, transactions and different levels of on-disk persistence, and provides high
+			availability via Redis Sentinel and automatic partitioning with Redis Cluster.</p>
+	</div>
+	<div class="container">
+		<h4>Which technologies are used in this tutorial?</h4>
+		<ul>
+			<li ng-repeat="tech in tutorial.usedTechnologies"><a href="{{tech.link}}" target="_blank">{{tech.name}}</a>
+			</li>
+		</ul>
+	</div>
+	<div class="container">
+		<h4>Githib URL</h4>
+		<a href="{{tutorial.githubUrl}}" target="_blank">Link to the project on Github</a>
+	</div>
+	<div class="container text-center">
+		<md-button class="md-raised md-primary md-hue-2" ng-click="goBack()">
+			<span>Go Back</span>
+		</md-button>
+	</div>
+</div>

@@ -1,0 +1,51 @@
+[
+  {
+    "name":"Handling sessions with Redis",
+    "description":"Handling session with express, node, redis and mysql",
+    "dateCreated":"01.07.2020",
+    "githubUrl":"#",
+    "usedTechnologies":[]
+  },
+  {
+    "name":"React tutorial",
+    "description":"Learn ReactJS by making simple app",
+    "dateCreated":"01.07.2020",
+    "githubUrl":"#",
+    "usedTechnologies":[]
+  },
+  {
+    "name":"AMQP Tutorial",
+    "description":"Learn AMQP messaging over web sockets",
+    "dateCreated":"01.07.2020",
+    "githubUrl":"#",
+    "usedTechnologies":[]
+  },
+  {
+    "name":"MEAN stack tutorial",
+    "description":"Learn MEAN stack by making simple hotel application",
+    "dateCreated":"01.07.2020",
+    "githubUrl":"https://github.com/dragon13v77/MEAN-course",
+    "usedTechnologies":[
+      {
+        "name":"AngularJS",
+        "link":"https://docs.angularjs.org/guide",
+        "description":""
+      },
+      {
+        "name":"Express",
+        "link":"https://expressjs.com/",
+        "description":""
+      },
+      {
+        "name":"Mongo DB",
+        "link":"#",
+        "description":""
+      },
+      {
+        "name":"NodeJS",
+        "link":"https://nodejs.org/en/about/",
+        "description":""
+      }
+    ]
+  }
+]

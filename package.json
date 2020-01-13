@@ -1,0 +1,29 @@
+{
+  "name": "simple-angular-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "serve": "live-server --port=3003 ./",
+    "server": "node server",
+    "copy-libs": "cpx \"node_modules/{angular,angular-*,bootstrap/dist,jquery/dist}/**/*\" app/lib -C"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "live-server": "^1.2.1",
+    "cpx": "^1.5.0",
+    "mocha": "^6.2.2"
+  },
+  "dependencies": {
+    "@uirouter/angularjs": "^1.0.24",
+    "angular": "^1.7.9",
+    "angular-material": "^1.1.21",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1",
+    "jquery": "^3.4.1",
+    "mongodb": "^3.4.1",
+    "mongoose": "^5.8.2"
+  }
+}

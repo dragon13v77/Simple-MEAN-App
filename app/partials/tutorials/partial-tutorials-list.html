@@ -1,0 +1,14 @@
+<div class="jumbotron">
+	<div class="container">
+		<div class="list-group">
+			<a ui-sref="tutorial({tutorialId: tutorial._id})" class="list-group-item list-group-item-action" ng-repeat="tutorial in tutorials">
+				<div class="d-flex w-100 justify-content-between">
+					<h5 class="mb-1">{{ tutorial.name }}</h5>
+					<small>3 days ago</small>
+				</div>
+				<p class="mb-1">{{ tutorial.description }}</p>
+				<small>Donec id elit non mi porta.</small>
+			</a>
+		</div>
+	</div>
+</div>
