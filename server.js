@@ -1,13 +1,17 @@
 require('./api/data/db.js');
+var sessionHandler = require('./api/redis/sessionHandler');
 const express = require('express');
 const path = require('path');
 const routes = require('./api/routes');
 const bodyParser = require('body-parser');
-
 const app = express();
+const cookieParser = require('cookie-parser');
 
 // set constant in express
 app.set('port', 3003);
+
+// start a session
+app.use(sessionHandler.getSession());
 
 app.use(function(req, res, next) {
 	console.log(req.method, req.url);

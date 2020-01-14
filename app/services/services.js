@@ -25,13 +25,14 @@ angular.module('app').service('Tutorials', ['$http', '$q', function ($http, $q) 
 	}
 }]);
 
-angular.module('app').service('LoginService', ['$http', '$q', '$cookies', '$rootScope', '$timeout', function ($http, $q, $cookies, $rootScope, $timeout) {
+angular.module('app').service('LoginService', ['$http', '$q', '$cookies', '$rootScope', 'SessionService', function ($http, $q, $cookies, $rootScope, SessionService) {
 
 	this.login = function(username, password) {
 		var deferred = $q.defer();
 		$http.get('/api/login', {params: { username: username, password: password }})
 		    .then(function (response) {
 				deferred.resolve(response.data);
+				SessionService.create(response.data.sessId, response.data.user.username, null);
 		    }, function(response) {
 				deferred.resolve(response);
 			});
@@ -48,4 +49,46 @@ angular.module('app').service('LoginService', ['$http', '$q', '$cookies', '$root
 			});
 		return deferred.promise;
 	}
+
+	this.isAuthenticated = function () {
+		return !!SessionService.userName;
+	};
+
+	this.checkProfile = function() {
+		var deferred = $q.defer();
+		$http.get('/api/profile')
+			.then(function (response) {
+				deferred.resolve(response.data);
+				if (response.data && response.data.username) {
+					SessionService.create(response.data.sessId, response.data.username, null);
+				}
+			}, function(response) {
+				deferred.resolve(response);
+			});
+		return deferred.promise;
+	}
+}]);
+
+angular.module('app').service('UserService', ['$http', '$q', '$cookies', '$rootScope', function ($http, $q, $cookies, $rootScope) {
+
+}]);
+
+angular.module('app').service('SessionService', ['$http', '$q', '$cookies', '$rootScope', function ($http, $q, $cookies, $rootScope) {
+
+	this.id = null;
+	this.userName = null;
+	this.userRole = null;
+
+	this.create = function (sessionId, userName, userRole) {
+		this.id = sessionId;
+		this.userName = userName;
+		this.userRole = userRole;
+		$rootScope.loggedIn = true;
+	};
+	this.destroy = function () {
+		this.id = null;
+		this.userName = null;
+		this.userRole = null;
+		$rootScope.loggedIn = false;
+	};
 }]);

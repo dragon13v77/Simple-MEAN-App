@@ -14,11 +14,15 @@ router
 
 router
 	.route('/login')
-	.get(ctrlLogin.usersGetOne);
+	.get(ctrlLogin.login);
 
 router
 	.route('/logout')
-	.get(ctrlLogin.usersLogout);
+	.get(ctrlLogin.logout);
+
+router
+	.route('/profile')
+	.get(ctrlLogin.checkProfile);
 
 
 module.exports = router;

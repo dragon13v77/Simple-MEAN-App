@@ -1,4 +1,4 @@
-<md-toolbar ng-controller="logoutController">
+<md-toolbar ng-controller="logoutController" layout="row">
 	<div class="md-toolbar-tools" flex>
 		<md-button>
 			<a ui-sref="home">Home</a>
@@ -9,11 +9,17 @@
 		<md-button ui-sref-active="active">
 			<a ui-sref="about">About</a>
 		</md-button>
-		<md-button ui-sref-active="active" ng-hide="authenticatedUser">
+		<md-button ui-sref-active="active" ng-hide="loggedIn">
 			<a ui-sref="login">Login</a>
 		</md-button>
-		<md-button>
-			<span ng-click="logout()" ng-show="authenticatedUser">Logout</span>
+		<md-button ui-sref-active="active" ng-show="loggedIn">
+			<a ui-sref="admin">Admin</a>
 		</md-button>
+		<md-button ng-show="loggedIn">
+			<span ng-click="logout()">Logout</span>
+		</md-button>
+	</div>
+	<div class="md-toolbar-tools" flex="30" layout-align="end center">
+		<span ng-show="loggedIn">Welcome {{authenticatedUser.firstName + ' ' + authenticatedUser.lastName}}</span>
 	</div>
 </md-toolbar>

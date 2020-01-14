@@ -1,4 +1,20 @@
-var app = angular.module('app', ['ui.router', 'ngCookies', 'ngMaterial', 'ngMessages', 'header', 'footer']);
+var app = angular.module('app', ['ui.router', 'ui.router.state.events', 'ngCookies', 'ngMaterial', 'ngMessages', 'header', 'footer']);
+
+app.run(function ($rootScope, $state, LoginService) {
+
+	LoginService.checkProfile().then(function(response) {
+		$rootScope.$on('$stateChangeStart', function (event, toState, toParams) {
+			var requireLogin = toState.data.requireLogin;
+			console.log('REQUIRE LOGIN => ', requireLogin);
+
+			if (requireLogin && !LoginService.isAuthenticated()) {
+				event.preventDefault();
+				// go to login page
+				$state.go('login');
+			}
+		});
+	});
+});
 
 app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdThemingProvider) {
 
@@ -16,7 +32,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdT
 	$stateProvider
 		.state('home', {
 			url: '/home',
-			templateUrl: '/partials/home/partial-home.html'
+			templateUrl: '/partials/home/partial-home.html',
+			data: {
+				requireLogin: false
+			}
 		})
 		//.state('home.list', {
 		//	url: '/list',
@@ -32,7 +51,10 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdT
 		.state('tutorials', {
 			url: '/tutorials',
 			templateUrl: '/partials/tutorials/partial-tutorials-list.html',
-			controller: 'tutorialsController'
+			controller: 'tutorialsController',
+			data: {
+				requireLogin: false
+			}
 		})
 		.state('tutorial', {
 			url: '/tutorial/{tutorialId}',
@@ -57,12 +79,26 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdT
 					templateUrl: '/partials/about/table-data.html',
 					controller: 'scotchController'
 				}
+			},
+			data: {
+				requireLogin: false
 			}
 		})
 		.state('login', {
 			url: '/login',
 			templateUrl: '/partials/login/partial-login.html',
-			controller: 'loginController'
+			controller: 'loginController',
+			data: {
+				requireLogin: false
+			}
+		})
+		.state('admin', {
+			url: '/admin',
+			templateUrl: 'partials/admin/partial-admin.html',
+			controller: 'adminController',
+			data: {
+				requireLogin: true
+			}
 		})
 });
 

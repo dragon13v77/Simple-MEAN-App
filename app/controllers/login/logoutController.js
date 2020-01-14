@@ -2,8 +2,11 @@ angular.module('app').controller('logoutController', function($scope, $rootScope
 
 	$scope.logout = function() {
 		LoginService.logout().then(function(response) {
-			$rootScope.authenticatedUser = !response;
-			$state.go('home');
+			if (response) {
+				$rootScope.loggedIn = !response;
+				$state.go('home');
+				console.log('LOGOUT SUCCESS');
+			}
 		})
 	}
 });
