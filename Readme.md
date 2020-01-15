@@ -1,4 +1,6 @@
-# Angular routing using UI Router
+#Simple MEAN App
+
+### Angular routing using UI Router
 
 When creating a link with UI-Router, you will use `ui-sref`.
 The href will be generated from this and you want this to point to a certain state of your application.
