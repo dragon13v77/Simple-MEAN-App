@@ -15,7 +15,7 @@ redisClient.on('error', (err) => {
 });
 
 redisClient.on("monitor", function (time, args, raw_reply) {
-	console.log(time + ": " + args);
+	//console.log(time + ": " + args);
 });
 
 module.exports.getRedisStore = function () {

@@ -1,0 +1,62 @@
+<md-content layout="row" layout-align="center stretch" style="height: 100%">
+	<span flex></span>
+	<div layout="row" layout-padding layout-align="center center" flex="30">
+		<form flex name="registerForm" novalidate ng-submit="register(user)">>
+			<div layout="column">
+				<md-input-container class="md-block">
+					<label>Full Name</label>
+					<input type="text" ng-model="user.fullName" name="fullName" ng-minlength="3" ng-maxlength="40" required>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Email</label>
+					<input type="email" ng-model="user.email" name="email" ng-minlength="3" ng-maxlength="20" required>
+					<div class="error" ng-show="registerForm.email.$dirty && registerForm.email.$invalid">
+						<small class="error" ng-show="registerForm.email.$error.required">
+							Your email is required.
+						</small>
+						<small class="error" ng-show="registerForm.email.$error.minlength">
+							Your email is required to be at least 3 characters
+						</small>
+						<small class="error" ng-show="registerForm.email.$error.email">
+							That is not a valid email. Please input a valid email.
+						</small>
+						<small class="error" ng-show="registerForm.email.$error.maxlength">
+							Your email cannot be longer than 20 characters
+						</small>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Username</label>
+					<input type="text" ng-model="user.username"
+						   name="username"
+						   ng-minlength="3" ng-maxlength="40"
+						   ensure-unique="username"
+						   required>
+					<!--&& registerForm.submitted-->
+					<div class="error" ng-show="registerForm.username.$dirty && registerForm.username.$invalid">
+						<small class="error" ng-show="registerForm.username.$error.required">
+							Please input a username
+						</small>
+						<small class="error" ng-show="registerForm.username.$error.minlength">
+							Username is required to be at least 3 characters
+						</small>
+						<small class="error" ng-show="registerForm.username.$error.maxlength">
+							Username cannot be longer than 40 characters
+						</small>
+						<small class="error" ng-show="registerForm.username.$error.unique">
+							That username is taken, please try another
+						</small>
+					</div>
+				</md-input-container>
+				<md-input-container class="md-block">
+					<label>Password</label>
+					<input type="password" ng-model="user.password" name="password" ng-minlength="5" ng-maxlength="20" required>
+				</md-input-container>
+				<div class="form-group" layout-align="center center" layout="row">
+					<md-button type="submit" class="md-raised md-primary md-hue-2">Register</md-button>
+				</div>
+			</div>
+		</form>
+	</div>
+	<span flex></span>
+</md-content>

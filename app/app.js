@@ -100,6 +100,14 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider, $mdT
 				requireLogin: true
 			}
 		})
+		.state('register', {
+			url: '/register',
+			templateUrl: '/partials/register/partial-register.html',
+			controller: 'registerController',
+			data: {
+				requireLogin: false
+			}
+		});
 });
 
 app.controller('scotchController', function ($scope) {
